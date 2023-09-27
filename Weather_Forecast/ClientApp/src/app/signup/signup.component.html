@@ -1,0 +1,29 @@
+<div class="signup-container">
+    <div class="container">
+        <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <p>All fields are required</p>
+            <p>Password should be more then 8 letters</p>
+            <h1>Sign Up</h1>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" formControlName="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName"  formControlName="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email (Username)</label>
+                <input type="email" id="email" name="email"  formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"  formControlName="password">
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="signin-link">
+            <p>Already have an account? <a routerLink="/signin">Sign In</a></p>
+        </div>
+    </div>
+</div>

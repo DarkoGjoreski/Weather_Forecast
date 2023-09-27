@@ -1,0 +1,26 @@
+<div class="weather-container">
+    <div class="form-group">
+        <label for="city">City</label>
+        <input #cityName (keyup.enter)="update(cityName.value)" (blur)="update(cityName.value)">
+        <div class="button" (click)="search()">Search</div>
+        <div class="button" (click)="signout()">Sign Out</div>
+    </div>
+    <div *ngIf="jsonData" class="weather-container">
+        <h2>Weather Forecast for {{ jsonData.city.name }}</h2>
+        <div class="weather-today">
+          <h3>Today</h3>
+          <div class="forecast-item" *ngFor="let item of jsonData.list.slice(0,1)">
+            <div class="forecast-date">{{ item.dt_txt }}</div>
+            <div class="forecast-temperature">{{ item.main.temp }}°C</div>
+            <div class="forecast-description">{{ item.weather[0].description }}</div>
+          </div>
+        </div>
+        <div class="weather-forecast">
+          <h3>Next 3-Day Forecast</h3>
+          <div class="forecast-item" *ngFor="let item of jsonData.list.slice(1, 4)">
+            <div class="forecast-temperature">{{ item.main.temp }}°C</div>
+            <div class="forecast-description">{{ item.weather[0].description }}</div>
+          </div>
+        </div>
+      </div>
+</div>
